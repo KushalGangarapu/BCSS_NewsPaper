@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts (variables provided by next/font/google in layout.tsx) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-masthead: var(--font-unifraktur), "Old English Text MT", serif;
+
+  /* Palette: black/white base, BCSS red primary, gold used sparingly */
+  --color-ink: #141414;
+  --color-paper: #fdfdfb;
+  --color-accent: #c8102e;
+  --color-gold: #b8860b;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* ── Editorial utilities ────────────────────────────────────────────────── */
+
+/* Double hairline rule used above/below the masthead */
+.rule-double {
+  border-top: 3px double var(--color-ink);
+}
+
+.rule-thin {
+  border-top: 1px solid var(--color-ink);
+}
+
+.rule-accent {
+  border-top: 2px solid var(--color-accent);
+}
+
+/* Small-caps-ish eyebrow label used for section headers */
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Visually hidden but available to screen readers / skip links */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  clip: auto;
+  white-space: normal;
+}
+
+/* iOS Safari auto-zooms on focus when inputs are <16px — force 16px on phones */
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
